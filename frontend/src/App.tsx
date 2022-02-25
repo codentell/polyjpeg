@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Navigate, Route, Routes, useLocation } from "react-router-dom";
+import NavBar from "./components/NavBar/NavBar";
 import Home from "./views/Home";
 import Profile from "./views/Profile";
 
@@ -18,7 +19,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<><NavBar/> <Home /> </>} />
         <Route path='/sell' element={<Sell />} />
         <Route path='/profile/:id' element={<Profile />} />
       </Routes>
