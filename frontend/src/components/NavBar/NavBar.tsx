@@ -4,8 +4,10 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { AppBar, Autocomplete, Box , TextField} from '@mui/material';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
+  const navigate = useNavigate()
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -33,7 +35,7 @@ const NavBar = () => {
     // This matches the specificity of the default styles at https://github.com/mui-org/material-ui/blob/v4.11.3/packages/material-ui-lab/src/Autocomplete/Autocomplete.js#L90
     '&[class*="MuiOutlinedInput-root"] .MuiAutocomplete-input:first-child': {
       // Default left padding is 6px
-      paddingLeft: 26
+      paddingLeft: 0
     },
     "& .MuiOutlinedInput-notchedOutline": {
       borderColor: "inherit"
@@ -46,10 +48,10 @@ const NavBar = () => {
     }
   }}} {...params} placeholder="Search items, collections, and profiles" />}
 />
-          <Button variant="outlined" color="inherit" >
+          <Button variant="outlined" color="inherit" onClick={()=> navigate('/')} >
             Discover
           </Button>
-          <Button sx={{marginRight: "100px", marginLeft: "50px"}} variant="outlined" color="inherit">
+          <Button onClick={()=> navigate('/sell')} sx={{marginRight: "100px", marginLeft: "50px"}} variant="outlined" color="inherit">
             Sell
           </Button>
           <Button variant="outlined" color="inherit">Connect wallet</Button>
